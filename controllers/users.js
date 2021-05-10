@@ -5,8 +5,7 @@ const UnauthorizedError = require('../errors/unauthorized-error');
 const NotFoundError = require('../errors/not-found-error');
 const ConflictingRequestError = require('../errors/conflicting-request-error');
 const User = require('../models/user');
-
-const { NODE_ENV, JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET } = require('../config');
 
 module.exports.createUser = (req, res, next) => {
   const {

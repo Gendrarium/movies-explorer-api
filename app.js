@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,14 +6,14 @@ const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const errorHandler = require('./middlewares/error-handler');
-const NotFoundError = require('./errors/not-found-error');
+const { MONGO_URL } = require('./config');
 const router = require('./routes');
 
 const { PORT = 3000 } = process.env;
 const CORS_WHITELIST = ['http://localhost:3001'];
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/bitfilmsdb', {
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
@@ -41,10 +40,6 @@ app.use(bodyParser.urlencoded({
 app.use(requestLogger);
 
 app.use(router);
-
-app.use((req, res, next) => {
-  next(new NotFoundError('Неверный адрес запроса!'));
-});
 
 app.use(errorLogger);
 app.use(errors());
