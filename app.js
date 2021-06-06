@@ -9,8 +9,8 @@ const errorHandler = require('./middlewares/error-handler');
 const { MONGO_URL } = require('./config');
 const router = require('./routes');
 
-const { PORT = 3000 } = process.env;
-const CORS_WHITELIST = ['http://localhost:3001'];
+const { PORT = 8000 } = process.env;
+const CORS_WHITELIST = ['http://localhost:3000'];
 const app = express();
 
 mongoose.connect(MONGO_URL, {
