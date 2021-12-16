@@ -17,6 +17,4 @@
 
 **Ссылка на сайт**
 
-Публичный ip-адрес сервера: 130.193.46.3
-
-[Нажмите сюда, чтобы посмотреть сайт.](https://api.gendra.movies.nomoredomains.club/)
+[Нажмите сюда, чтобы посмотреть сайт.](https://movies-explorer-gendrarium.herokuapp.com/api)
